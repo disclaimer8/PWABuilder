@@ -51,8 +51,7 @@ export class SuccessStories extends LitElement {
         row-gap: .8em;
         column-gap: 1em;
       }
-      
-      
+
       /* < 480px */
       ${smallBreakPoint(css`
           #success-panel {
@@ -162,7 +161,8 @@ export class SuccessStories extends LitElement {
     super();
   }
 
-  firstUpdated(){
+  connectedCallback(): void {
+    super.connectedCallback();
     this.cards = getCards();
   }
 

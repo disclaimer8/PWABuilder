@@ -5,7 +5,7 @@ import { customElement, state } from 'lit/decorators.js';
 @customElement('companies-packaged')
 export class ComapniesPackaged extends LitElement {
 
-  @state() companies: string[] = ["facebook", "instagram", "mailchimp", "plutotv", "sketchapp", "tiktok", "twitter"];
+  @state() companies: string[] = ["facebook", "instagram", "mailchimp", "plutotv", "sketchapp", "glass", "tiktok",  "twitter"];
   @state() paused: boolean = false;
   
   static get styles() {
@@ -56,25 +56,35 @@ export class ComapniesPackaged extends LitElement {
         background-position: center;
       }
       .controls {
-        border: none;
+        height: 25px;
+        width: 25px;
+        border: 1px solid #4F3FB6;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: none;
-        height: 20px;
-        width: auto;
       }
 
       .controls:hover {
         cursor: pointer;
       }
 
+      sl-icon {
+        color: #4F3FB6;
+        font-size: 15px;
+      }
+
       @keyframes scroll {
         0% { transform: translateX(0); }
-        14% { transform: translateX(calc(var(--slide-width) * -1)); }
-        28% { transform: translateX(calc(var(--slide-width) * -2)); }
-        42% { transform: translateX(calc(var(--slide-width) * -3)); }
-        56% { transform: translateX(calc(var(--slide-width) * -4)); }
-        70% { transform: translateX(calc(var(--slide-width) * -5)); }
-        84% { transform: translateX(calc(var(--slide-width) * -6)); }
-        100% { transform: translateX(calc(var(--slide-width) * -7)); }
+        12% { transform: translateX(calc(var(--slide-width) * -1)); }
+        24% { transform: translateX(calc(var(--slide-width) * -2)); }
+        36% { transform: translateX(calc(var(--slide-width) * -3)); }
+        48% { transform: translateX(calc(var(--slide-width) * -4)); }
+        60% { transform: translateX(calc(var(--slide-width) * -5)); }
+        72% { transform: translateX(calc(var(--slide-width) * -6)); }
+        84% { transform: translateX(calc(var(--slide-width) * -7)); }
+        100% { transform: translateX(calc(var(--slide-width) * -8)); }
       }
 
       .slider {
@@ -109,7 +119,7 @@ export class ComapniesPackaged extends LitElement {
         animation: scroll 21s infinite ease;
         animation-delay: 3s;
         display: flex;
-        width: calc(var(--slide-width) * 14);
+        width: calc(var(--slide-width) * 16);
       }
       
       .slide {
@@ -154,6 +164,13 @@ export class ComapniesPackaged extends LitElement {
           --carousel-width: 1000px;
         }
       }
+
+      @media screen and (-ms-high-contrast: white-on-black) {
+        .controls sl-icon {
+          color: white;
+          border-color: white;
+        }
+      }
     `
     ];
   }
@@ -162,9 +179,10 @@ export class ComapniesPackaged extends LitElement {
     super();
   }
 
-  firstUpdated() {
-    const shuffled = this.shuffle(this.companies);
-    this.companies = [...shuffled];
+  connectedCallback(): void {
+    super.connectedCallback();
+    /* const shuffled = this.shuffle(this.companies);
+    this.companies = [...shuffled]; */
   }
 
   shuffle(array: any) {
@@ -219,7 +237,14 @@ export class ComapniesPackaged extends LitElement {
             )}
         </div>
       </div>
-      ${this.paused ? html`<button class="controls" type="button" @click=${() => this.toggleAnimation()}><img src="/assets/Play.svg" alt="play button" /></button>` : html`<button class="controls" type="button" @click=${() => this.toggleAnimation()}><img src="/assets/Pause.svg" alt="pause button" /></button>`}
+      ${this.paused ? 
+        html`<button class="controls" type="button" @click=${() => this.toggleAnimation()}>
+              <sl-icon name="play-fill" aria-label="Play apps scrolling button"></sl-icon>
+            </button>` : 
+            
+        html`<button class="controls" type="button" @click=${() => this.toggleAnimation()}> 
+              <sl-icon name="pause-fill" aria-label="Pause apps scrolling button"></sl-icon>
+            </button>`}
     </div>
     `;
   }

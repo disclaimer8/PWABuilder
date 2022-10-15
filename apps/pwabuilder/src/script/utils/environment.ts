@@ -7,6 +7,7 @@ export const env = {
   windowsPackageGeneratorUrl: '',
   androidPackageGeneratorUrl: '',
   iosPackageGeneratorUrl: '',
+  oculusPackageGeneratorUrl: '',
   imageGeneratorUrl: '',
   safeUrlFetcher: '',
   webPackageGeneratorUrl: '',
@@ -27,9 +28,11 @@ if ((window as any).ENV == 'production') {
   env.windowsPackageGeneratorUrl =
     'https://pwabuilder-winserver.centralus.cloudapp.azure.com/msix/generatezip';
   env.androidPackageGeneratorUrl =
-    'https://pwabuilder-cloudapk.azurewebsites.net';
+    'https://pwabuilder-cloudapk-pre.azurewebsites.net';
   env.iosPackageGeneratorUrl =
     'https://pwabuilder-ios.azurewebsites.net/packages/create';
+  env.oculusPackageGeneratorUrl =
+    'https://pwabuilder-oculus-linux-docker-app.azurewebsites.net/packages/create';
   env.imageGeneratorUrl =
     'https://appimagegenerator-prod.azurewebsites.net/api/image';
   env.safeUrlFetcher =
@@ -48,13 +51,15 @@ if ((window as any).ENV == 'production') {
     'https://pwabuilder-manifest-creator.azurewebsites.net/api/create';
   env.serviceWorkerUrl =
     'https://pwabuilder-serviceworker-finder.centralus.cloudapp.azure.com';
-  env.api = 'https://pwabuilder-tests-dev.azurewebsites.net/api'; // changed
+  env.api = 'https://pwabuilder-tests.azurewebsites.net/api';
   env.windowsPackageGeneratorUrl =
     'https://pwabuilder-winserver.centralus.cloudapp.azure.com/msix/generatezip';
   env.androidPackageGeneratorUrl =
-    'https://pwabuilder-cloudapk-pre.azurewebsites.net'; // changed
+    'https://pwabuilder-cloudapk.azurewebsites.net'; // changed
   env.iosPackageGeneratorUrl =
     'https://pwabuilder-ios.azurewebsites.net/packages/create';
+  env.oculusPackageGeneratorUrl =
+    'https://pwabuilder-oculus-linux-docker-app.azurewebsites.net/packages/create';
   env.imageGeneratorUrl = 'https://appimagegenerator-pre.azurewebsites.net'; // changed
   env.safeUrlFetcher =
     'https://pwabuilder-safe-url.azurewebsites.net/api/getsafeurl';

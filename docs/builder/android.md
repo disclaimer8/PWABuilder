@@ -21,27 +21,31 @@ The first step is to generate your Android package with PWABuilder:
 2. Enter the URL of your PWA on the homepage.
 
 <div class="docs-image">
-    <img src="/assets/builder/android/url.jpg" width=450>
+     <img src="/assets/builder/general/pwabuilder-enter-url.png" alt="URL submission area on PWABuilder homepage" width=500>
 </div>
 
-3. Click `Next` to navigate to the package selection page.
+3. Click `Package for stores` to navigate to the package selection page.
    
-4. Click on `Store Package` in the Android section.
+4. Click on `Generate Package` in the Android section.
 
 <div class="docs-image">
     <img src="/assets/builder/android/store_package.jpg" width=550>
 </div>
 
-5. Next you will see a list of the different options for the Android platform that are covered in more detail below.
+5. Make sure you are on the `Google Play` tab and fill out the required options for your package.
    
-6. When you are ready, tap the `Generate` button to generate your Android app, and then the `Download` button when it pops up to download the generated App and associated files.
+6. Click `Download Package`.
+
+<div class="docs-image">
+    <img src="/assets/builder/android/android-options.png" width=550>
+</div>
 
 ## Configuration Options
 
 There are a ton of options you can configure when packaging for Android. Here's a breakdown of what each property means:
 
-| |                                                                                                                                                                                                                             |
-| :---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Property | Description |
+| :---------------|---------------------------------------------------------------------------------------------------------------- |
 | **Package ID** | The Android identifier unique to your app                                                                                                                                                                                                        |
 | **App name** | The full name of your app. We prepopulate this with the app name from your PWA’s app manifest.                                                                                                                                                     |
 | **Launcher name** | The name of your app in the Android launcher. This is typically the same as app name, or a shortened version of it. We prepopulate this with short_name from your PWA’s app manifest.                                                         |
@@ -148,4 +152,15 @@ PWABuilder will build a package signed with your existing key. When you upload i
 ?> **Note** If you want more info about quality control on Android, refer to this [article](https://blog.chromium.org/2020/06/changes-to-quality-criteria-for-pwas.html).
 
 
+## Next Steps
+
+Progressive web apps are cross-platform and can be used anywhere! 
+
+After you've sucessfully published your app to the Google Play Store, you can package and publish for other platforms:
+
+- [How to Package for Microsoft Store](/builder/windows)
+
+- [How to Package for Meta Quest](/builder/meta)
+
+- [How to Package for the App Store](/builder/app-store)
 

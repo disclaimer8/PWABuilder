@@ -158,7 +158,8 @@ export class CommunityHub extends LitElement {
     super();
   }
 
-  firstUpdated(){
+  connectedCallback(): void {
+    super.connectedCallback();
     this.cards = getCards();
   }
 
@@ -166,7 +167,7 @@ export class CommunityHub extends LitElement {
     return html`
       <div id="community-panel">
         <div id="community-photo">
-          <img src="/assets/new/community-image.png" alt="social hub image" />
+          <img src="/assets/new/community-image.png" alt="social hub image" role="presentation"/>
         </div>
         <div id="community-content">
           <h2>Join our Community</h2>
